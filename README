@@ -1,0 +1,72 @@
+
+# Jenkins Codebase
+
+
+# Jenkins CI/CD Pipeline for Docker and Kubernetes Deployment
+
+## Overview
+
+Jenkins is an open-source automation server widely used for continuous integration (CI) and continuous delivery (CD). This repository contains a Jenkins pipeline configuration that automates the process of building, tagging, and deploying Docker images to a Kubernetes cluster.
+
+The pipeline integrates GitHub, Docker Hub, and Kubernetes to achieve a fully automated CI/CD process for deploying a front-end application.
+
+## What is Jenkins?
+
+Jenkins is an automation server that facilitates continuous integration and continuous delivery in software development. It automates tasks such as code builds, tests, and deployment to various environments.
+
+### Key Jenkins Features:
+- **Continuous Integration (CI)**: Automatically builds and tests your code whenever changes are made.
+- **Continuous Delivery (CD)**: Automates the deployment process, ensuring that code changes are quickly pushed to production.
+- **Plugin Support**: Jenkins has a wide range of plugins, enabling integration with various tools such as Docker, Kubernetes, GitHub, Slack, and more.
+- **Pipeline as Code**: Jenkins supports defining build and deployment pipelines as code using `Jenkinsfile`, making it easier to maintain and version control.
+
+## How Jenkins Pipeline Works
+
+A Jenkins pipeline consists of multiple stages, where each stage is responsible for a particular task in the CI/CD process. These tasks include code checkout, building Docker images, pushing those images to Docker Hub, and deploying the image to a Kubernetes cluster.
+
+### Pipeline Stages:
+1. **Checkout**: Pulls the latest code from the GitHub repository.
+2. **Build Docker Image**: Builds a Docker image from the application code.
+3. **Tag Docker Image**: Tags the built image with the appropriate version/tag and prepares it for pushing to Docker Hub.
+4. **Push Docker Image**: Pushes the tagged Docker image to Docker Hub, making it available for deployment.
+5. **Deploy to Kubernetes**: Deploys the Docker image to a Kubernetes cluster, updating the Kubernetes deployment with the new image.
+
+---
+
+## Requirements
+
+To use this Jenkins pipeline, ensure that you meet the following prerequisites:
+
+### 1. **Jenkins Setup**
+- Install Jenkins on a server or use a hosted Jenkins solution.
+- Set up Jenkins with the following plugins:
+  - **Docker Pipeline Plugin**: For working with Docker images.
+  - **Kubernetes CLI Plugin**: To interact with the Kubernetes cluster.
+  - **Git Plugin**: To pull code from GitHub.
+  
+### 2. **Docker Setup**
+- Install **Docker** on the Jenkins server or agent where the pipeline will run.
+- Create a Docker Hub account and store Docker Hub credentials in Jenkins.
+
+### 3. **Kubernetes Setup**
+- Set up **kubectl** on the Jenkins server to interact with the Kubernetes cluster.
+- Make sure the Kubernetes cluster is accessible, and you have proper permissions to deploy applications.
+
+### 4. **GitHub Repository**
+- A GitHub repository containing your application’s code and Dockerfile.
+- Ensure the repository is accessible to Jenkins (via SSH or HTTPS).
+
+---
+
+## Pipeline Breakdown
+
+### **1. Checkout Stage**
+
+In this stage, Jenkins pulls the latest code from the GitHub repository.
+
+```groovy
+stage('Checkout') {
+    steps {
+        git url: "${GIT_REPO_URL}"
+    }
+}

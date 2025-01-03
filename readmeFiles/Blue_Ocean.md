@@ -4,7 +4,9 @@ Blue Ocean is a modern UI experience for Jenkins, designed for visualizing and c
 
 ## Benefits:
 - Easy to understand CI/CD workflows.
+
 - Intuitive and graphical interface for creating pipelines.
+
 - Visual representation of pipeline stages and statuses.
 
 ## Steps to Create a Pipeline in Blue Ocean:
