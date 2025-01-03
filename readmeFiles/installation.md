@@ -65,33 +65,33 @@ This guide provides a step-by-step approach for installing Jenkins using Docker 
 ## **Step 1: Install Docker**
 
 1. **Update your system's package index**:
-   ```bash
+   ```
    sudo apt update
     ```
 
     Install Docker:
-    ```bash
+    ```
    sudo apt install -y docker.io
    ```
 
    Start and enable Docker:
-   ```bash
+   ```
     sudo systemctl start docker
     sudo systemctl enable docker
     ``` 
 
-  Verify Docker installation:
-```bash
+    Verify Docker installation:
+    ```
     docker --version
     ```
 
- Alternatively, you can install Docker Desktop for Windows or macOS:
-```bash
+    Alternatively, you can install Docker Desktop for Windows or macOS:
+    ```
    	Docker Desktop Installation
     ```
-## ** Step 2:  Install Docker Compose
+## ** Step 2:  Install Docker Compose **
 
-If Docker Compose is not already installed, follow these steps:
+    If Docker Compose is not already installed, follow these steps:
 	1.	Download Docker Compose:
     sudo curl -L 
 
@@ -103,54 +103,49 @@ If Docker Compose is not already installed, follow these steps:
 
     ```bash
     sudo chmod +x /usr/local/bin/docker-compose
-   
     ```
 
     3.	Verify Docker Compose installation:
-    
-    ```bash
-    docker-compose --version
-    
-    
-```
+    ``` docker-compose --version
+    ```
 
-## ** Step 3: Clone the Repository
+## ** Step 3: Clone the Repository **
 
     Clone or download the contents of the repository containing the Dockerfile and docker-compose.yml files.
 
     For example:
 
-    ```bash
-    git clone https://github.com/WhiteboxHub/whiteboxLearning-wbl.git ```
-
- ## ** Step 4: Build the Jenkins Docker Image
-
-In the directory where the Dockerfile is located, build the Docker image for Jenkins:
-    ``` bash
-docker build -t my-jenkins .
+    ```git clone https://github.com/WhiteboxHub/whiteboxLearning-wbl.git 
     ```
- ## ** Step 5: Start Jenkins
 
-Run the following command to start Jenkins using Docker Compose:
-``` bash
-docker compose up -d
-```
-This command:
+ ## ** Step 4: Build the Jenkins Docker Image **
+
+    In the directory where the Dockerfile is located, build the Docker image for Jenkins:
+    ```
+    docker build -t my-jenkins .
+    ```
+ ## ** Step 5: Start Jenkins **
+
+    Run the following command to start Jenkins using Docker Compose:
+    ``` 
+    docker compose up -d
+    ```
+    This command:
 	•	Starts Jenkins in detached mode (background).
 	•	Maps Jenkins to port 8080 (web interface) and port 50000 (agent communication).
 
 
- ## ** Step 6: Access Jenkins
+ ## ** Step 6: Access Jenkins **
 	1.	Open your browser and go to:
-http://localhost:8080/
+    http://localhost:8080/
 	2.	Follow the installation steps:
 	•	Unlock Jenkins: Run this command to get the initial admin password:
-``` bash
+    ``` 
      docker exec my-jenkins cat /var/jenkins_home/secrets/initialAdminPassword
-```
+    ```
 
 
-Copy the password and paste it into the UI.
+    Copy the password and paste it into the UI.
 
 	•	Install Plugins: Select “Install Suggested Plugins” or customize the installation.
 	•	Create an Admin User: Fill in your details and save.
@@ -162,32 +157,31 @@ Copy the password and paste it into the UI.
 
     Stopping Jenkins
     To stop Jenkins and free up resources, run:
- ``` bash
-    docker compose down
-```
+    ``` docker compose down
+    ```
 
      Restarting Jenkins
      To restart Jenkins later, use:
-``` bash
-        docker compose up -d
- ```
+    ```docker compose up -d
+    ```
             
-## ** Step 8: Removing Jenkins
+## ** Step 8: Removing Jenkins **
 
-If you’re done with Jenkins and wish to remove all data, images, and containers, run:
+    If you’re done with Jenkins and wish to remove all data, images, and containers, run:
 
-```bash
-docker compose down --volumes --rmi all
-```
-This command will:
+    ```docker compose down --volumes --rmi all
+    ```
+    This command will:
 	•	Stop the Jenkins container
 	•	Remove all associated volumes (data)
 	•	Remove all Docker images built for Jenkins
 
 
-Important Notes
+    Important Notes
 	•	Data Persistence: Jenkins stores all configurations and jobs in the volume jenkins_home. Removing volumes will delete this data permanently.
 	•	Port Usage: Ensure port 8080 is not in use by other applications before starting Jenkins.
+
+
 
 
 
