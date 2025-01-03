@@ -27,15 +27,19 @@ Before starting Jenkins setup, ensure that Docker is installed on your system.
 Run the following commands:
 ```bash
 docker --version
+```
+```bash
 docker-compose --help
+```
 
 Launch Jenkins Container:
 docker-compose up -d
 
 
 Access Jenkins:
+```bash
 Visit http://IPADDRESS:8080 to access Jenkins UI.
-
+```
 
 Fetch Initial Admin Password:
 docker-compose logs jenkins
