@@ -1,8 +1,4 @@
-### **`02-Build-Docker-Image.md`**
-
-#### **Title:** Build Docker Image Stage
-
-## Jenkins Pipeline - Build Docker Image
+# **Stage 02:** Build Docker Image
 
 ```groovy
 stage('Build Docker Image') {
@@ -13,25 +9,22 @@ stage('Build Docker Image') {
         }
     }
 }
+```
+**Description:** This stage builds a Docker image using the application's source code and a `Dockerfile`.
 
-#### **Description:**
-This stage builds a Docker image using the application's source code and a `Dockerfile`.
 
-#### **Content for the `.md` file:**
-```markdown
 # Build Docker Image Stage
-
-## Purpose
 The Build Docker Image stage creates a Docker image containing the application, using the codebase and the `Dockerfile` located in the repository.
 
 ## Implementation
 The `docker build` command is used to create the Docker image:
-  ```groovy
+groovy
+  ```bash
   sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
-
+```
 The ${DOCKER_IMAGE} and ${DOCKER_TAG} are environment variables that define the name and tag of the image.
 
-Key Considerations
+**Key Considerations**:
 
 •	Ensure that the Dockerfile is present and correctly configured in 	the repository.
 •	Validate the base image and dependencies in the Dockerfile.

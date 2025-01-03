@@ -2,30 +2,32 @@
 
 A Jenkins Pipeline is a suite of plugins that supports building, deploying, and automating projects.
 
-Selecting the Pipeline Source:
-
+**Selecting the Pipeline Source:**
+--
 Blue Ocean supports various SCM systems like Git, GitHub, and Bitbucket.
 Provide the necessary credentials to access your repository.
 
-Configuring the Pipeline:
-
+**Configuring the Pipeline:**
+--
 Blue Ocean will scan your repository and detect any existing Jenkinsfiles.
 Use the visual pipeline editor to create a new pipeline if no Jenkinsfile is found.
 
-Saving and Running the Pipeline:
-
+**Saving and Running the Pipeline:**
+--
 Define the pipeline stages and steps.
 Save the pipeline configuration.
 Run the pipeline.
 
-Pipeline Dashboard:
+**Pipeline Dashboard:**
+--
 View the progress and status of the pipeline.
 Real-time pipeline status updates.
 Detailed information about stage and step execution.
 Pipeline run history.
 
 
-Troubleshooting and Debugging:
+**Troubleshooting and Debugging:**
+--
 Identify the stage or step where the failure occurred.
 View associated logs and take necessary actions to resolve the problem.
 Best Practices for Pipeline Creation and Visualization:

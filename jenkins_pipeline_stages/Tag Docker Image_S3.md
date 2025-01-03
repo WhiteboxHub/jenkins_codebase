@@ -1,7 +1,5 @@
 
-### **`03-Tag-Docker-Image.md`**
-
-## Jenkins Pipeline - Tag Docker Image Stage
+# **`Stage 03-Tag-Docker-Image`**
 
 ```groovy
 stage('Tag Docker Image') {
@@ -12,15 +10,10 @@ stage('Tag Docker Image') {
         }
     }
 }
+```
 
-#### **Title:** Tag Docker Image Stage
-
-#### **Description:**
+## **Description:**
 This stage tags the built Docker image with a specific name and pushes it to the Docker registry.
-
-#### **Content for the `.md` file:**
-```markdown
-# Tag Docker Image Stage
 
 ## Purpose
 The Tag Docker Image stage adds a registry-specific tag to the Docker image, preparing it for upload to the Docker registry.
@@ -30,7 +23,7 @@ The Tag Docker Image stage adds a registry-specific tag to the Docker image, pre
   ```groovy
   sh "docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${REGISTRY}/${IMAGE_NAME}:${DOCKER_TAG}"
 
-Key Considerations
+## **Key Considerations**
 
 •	Ensure that the registry name, image name, and tag are configured correctly.
 •	Confirm that the image name follows the Docker Hub naming conventions.

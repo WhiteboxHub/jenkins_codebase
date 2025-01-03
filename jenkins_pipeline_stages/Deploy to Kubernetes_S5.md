@@ -1,7 +1,4 @@
-# Deploy to Kubernetes
----
-
-### **`05-Deploy-to-Kubernetes.md`**
+# **`Stage:05-Deploy-to-Kubernetes`**
 
 ## Jenkins Pipeline - Deploy to Kubernetes Stage
 
@@ -20,31 +17,28 @@ stage('Deploy to Kubernetes') {
         }
     }
 }
-
-#### **Title:** Deploy to Kubernetes Stage
-
-#### **Description:**
+```
+## **Description:**
 This stage deploys the newly built and pushed Docker image to a Kubernetes cluster.
-
-#### **Content for the `.md` file:**
-```markdown
-# Deploy to Kubernetes Stage
 
 ## Purpose
 The Deploy to Kubernetes stage updates the Kubernetes deployment with the new Docker image.
 
 ## Implementation
-- The Kubernetes context is set using:
-  ```groovy
+• The Kubernetes context is set using:
+```groovy
   sh "kubectl config use-context ${KUBERNETES_CLUSTER_CONTEXT}"
+```
 •	The kubectl set image command updates the deployment:
-
+```groovy
     sh "kubectl set image deployment/frontend ${IMAGE_NAME}=${REGISTRY}/${IMAGE_NAME}:${DOCKER_TAG} --namespace=${KUBERNETES_NAMESPACE}"
-
+```
 •	The rollout status is checked:
+```groovy
 sh "kubectl rollout status deployment/frontend --namespace=${KUBERNETES_NAMESPACE}"
+```
+**Key Considerations**:
 
-Key Considerations
-	•	Ensure the Kubernetes context is configured correctly on the Jenkins agent.
-	•	Verify that the Kubernetes namespace and deployment names are correct.
-	•	Confirm that the agent has kubectl installed and sufficient permissions.
+- Ensure the Kubernetes context is configured correctly on the Jenkins agent.
+- Verify that the Kubernetes namespace and deployment names are correct.
+- Confirm that the agent has kubectl installed and sufficient permissions.
