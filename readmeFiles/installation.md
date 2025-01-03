@@ -110,9 +110,9 @@ This guide provides a step-by-step approach for installing Jenkins using Docker 
     3.Verify Docker Compose installation:
 ```bash 
     docker-compose --version
-    ```
+```
 
-## ** Step 3: Clone the Repository **
+## **Step 3: Clone the Repository**
 
     Clone or download the contents of the repository containing the Dockerfile and docker-compose.yml files.
 
@@ -138,10 +138,15 @@ This guide provides a step-by-step approach for installing Jenkins using Docker 
 
 
  ## **Step 6: Access Jenkins**
-	1.	Open your browser and go to:
+	1.Open your browser and go to:
+
+```bash
     http://localhost:8080/
-	2.	Follow the installation steps:
+```
+	2.Follow the installation steps:
+
 	•	Unlock Jenkins: Run this command to get the initial admin password:
+
 ```bash
      docker exec my-jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 ```
@@ -150,7 +155,7 @@ This guide provides a step-by-step approach for installing Jenkins using Docker 
 	•	Install Plugins: Select “Install Suggested Plugins” or customize the installation.
 	•	Create an Admin User: Fill in your details and save.
 
-	3.	Once completed, you will be redirected to the Jenkins dashboard.
+	3.Once completed, you will be redirected to the Jenkins dashboard.
 
 
 ## **Step 7: Stopping and Restarting Jenkins**
@@ -173,11 +178,13 @@ This guide provides a step-by-step approach for installing Jenkins using Docker 
     docker compose down --volumes --rmi all
 
 - **This command will**:
-	•	Stop the Jenkins container
-	•	Remove all associated volumes (data)
-	•	Remove all Docker images built for Jenkins
+
+	•	Stop the Jenkins container.
+	•	Remove all associated volumes (data).
+	•	Remove all Docker images built for Jenkins.
 
 - **Important Notes**:
+
 	•	Data Persistence: Jenkins stores all configurations and jobs in the volume jenkins_home. Removing volumes will delete this data permanently.
 	•	Port Usage: Ensure port 8080 is not in use by other applications before starting Jenkins.
 
