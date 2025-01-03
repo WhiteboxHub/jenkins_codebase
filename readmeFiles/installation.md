@@ -75,38 +75,42 @@ This guide provides a step-by-step approach for installing Jenkins using Docker 
    ```
 
    Start and enable Docker:
-   ```
+
+   ```sh
     sudo systemctl start docker
     sudo systemctl enable docker
     ``` 
 
     Verify Docker installation:
-    ```
+
+    ```sh
     docker --version
     ```
 
     Alternatively, you can install Docker Desktop for Windows or macOS:
-    ```
+
+    ```sh
    	Docker Desktop Installation
     ```
 ## ** Step 2:  Install Docker Compose **
 
     If Docker Compose is not already installed, follow these steps:
-	1.	Download Docker Compose:
+	1.Download Docker Compose:
     sudo curl -L 
 
-    ```bash
+    ```sh
     "https://github.com/docker/compose/releases/download/v2.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     ```
 
-	2.	Apply executable permissions:
+	2.Apply executable permissions:
 
-    ```bash
+    ```sh
     sudo chmod +x /usr/local/bin/docker-compose
     ```
 
-    3.	Verify Docker Compose installation:
-    ``` docker-compose --version
+    3.Verify Docker Compose installation:
+    ```sh 
+    docker-compose --version
     ```
 
 ## ** Step 3: Clone the Repository **
@@ -115,13 +119,14 @@ This guide provides a step-by-step approach for installing Jenkins using Docker 
 
     For example:
 
-    ```git clone https://github.com/WhiteboxHub/whiteboxLearning-wbl.git 
+    ```sh
+    git clone https://github.com/WhiteboxHub/whiteboxLearning-wbl.git 
     ```
 
  ## ** Step 4: Build the Jenkins Docker Image **
 
     In the directory where the Dockerfile is located, build the Docker image for Jenkins:
-    ```
+    ```sh
     docker build -t my-jenkins .
     ```
  ## ** Step 5: Start Jenkins **
@@ -165,22 +170,22 @@ This guide provides a step-by-step approach for installing Jenkins using Docker 
     ```docker compose up -d
     ```
             
-## ** Step 8: Removing Jenkins **
+Step 8: Removing Jenkins 
 
     If you’re done with Jenkins and wish to remove all data, images, and containers, run:
 
-    ```docker compose down --volumes --rmi all
-    ```
+    ```bash
+    docker compose down --volumes --rmi all
+
     This command will:
 	•	Stop the Jenkins container
 	•	Remove all associated volumes (data)
 	•	Remove all Docker images built for Jenkins
 
-
     Important Notes
 	•	Data Persistence: Jenkins stores all configurations and jobs in the volume jenkins_home. Removing volumes will delete this data permanently.
 	•	Port Usage: Ensure port 8080 is not in use by other applications before starting Jenkins.
-
+    ```
 
 
 
