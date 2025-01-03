@@ -81,43 +81,47 @@ This guide provides a step-by-step approach for installing Jenkins using Docker 
     ``` 
 
   Verify Docker installation:
-    ```bash
+```bash
     docker --version
-        ```
-
- Alternatively, you can install Docker Desktop for Windows or macOS:
-    ```bash
-   	Docker Desktop Installation
     ```
 
+ Alternatively, you can install Docker Desktop for Windows or macOS:
+```bash
+   	Docker Desktop Installation
+    ```
 ## ** Step 2:  Install Docker Compose
 
 If Docker Compose is not already installed, follow these steps:
 	1.	Download Docker Compose:
+    sudo curl -L 
 
     ```bash
-   sudo curl -L "https://github.com/docker/compose/releases/download/v2.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    "https://github.com/docker/compose/releases/download/v2.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     ```
+
 	2.	Apply executable permissions:
 
     ```bash
-  sudo chmod +x /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+   
     ```
 
     3.	Verify Docker Compose installation:
+    
     ```bash
     docker-compose --version
-    ```
+    
+    
+```
 
 ## ** Step 3: Clone the Repository
 
     Clone or download the contents of the repository containing the Dockerfile and docker-compose.yml files.
 
     For example:
+
     ```bash
-    git clone https://github.com/WhiteboxHub/whiteboxLearning-wbl.git 
-    
-    ```
+    git clone https://github.com/WhiteboxHub/whiteboxLearning-wbl.git ```
 
  ## ** Step 4: Build the Jenkins Docker Image
 
@@ -128,9 +132,9 @@ docker build -t my-jenkins .
  ## ** Step 5: Start Jenkins
 
 Run the following command to start Jenkins using Docker Compose:
-     ``` bash
+``` bash
 docker compose up -d
-    ```
+```
 This command:
 	•	Starts Jenkins in detached mode (background).
 	•	Maps Jenkins to port 8080 (web interface) and port 50000 (agent communication).
@@ -141,10 +145,9 @@ This command:
 http://localhost:8080/
 	2.	Follow the installation steps:
 	•	Unlock Jenkins: Run this command to get the initial admin password:
-
-     ``` bash
+``` bash
      docker exec my-jenkins cat /var/jenkins_home/secrets/initialAdminPassword
-    ```
+```
 
 
 Copy the password and paste it into the UI.
@@ -159,22 +162,21 @@ Copy the password and paste it into the UI.
 
     Stopping Jenkins
     To stop Jenkins and free up resources, run:
-        ``` bash
+ ``` bash
     docker compose down
-            ```
+```
 
      Restarting Jenkins
      To restart Jenkins later, use:
-        ``` bash
+``` bash
         docker compose up -d
-            ```
+ ```
             
 ## ** Step 8: Removing Jenkins
 
 If you’re done with Jenkins and wish to remove all data, images, and containers, run:
 
 ```bash
-
 docker compose down --volumes --rmi all
 ```
 This command will:
